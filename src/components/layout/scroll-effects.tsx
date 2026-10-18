@@ -6,7 +6,7 @@ import { useEffect } from "react";
 // --enter 0..1 as they come in (the steps light up in turn), and .rv blocks reveal in a stagger.
 export function ScrollEffects() {
     useEffect(() => {
-        const nav = document.querySelector(".nav"), hero = document.querySelector<HTMLElement>(".art");
+        const nav = document.querySelector(".nav"), hero = document.querySelector<HTMLElement>(".trio");
         const still = matchMedia("(prefers-reduced-motion: reduce)").matches, sc = Array.from(document.querySelectorAll<HTMLElement>("[data-sc]"));
         const cl = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
         let tick = false;

@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-// Copy lands in sequence; the app rises in front of the disc, then drifts up as you scroll (--hs, set by ScrollEffects).
+// The three app mockups from the solid-wealth feature section, in the activeinvest.in hero layout:
+// the copy lands in sequence, the side shots fan out from behind the middle one, then drift apart
+// as you scroll (--hs, set by ScrollEffects).
+const SHOTS = [
+    { cls: "shot shot-l", src: "/feature-onboarding.webp" },
+    { cls: "shot shot-c", src: "/feature-portfolio.webp" },
+    { cls: "shot shot-r", src: "/feature-risk.webp" },
+];
+
 export function HeroSection() {
     return (
         <section className="hero">
@@ -11,8 +19,12 @@ export function HeroSection() {
                     <p className="lead">Mutual funds, SIPs and tax saving, set up with Solid Wealth and tracked in your own app.</p>
                     <div className="ctas"><a className="btn" href="#contact">Talk to us</a><a className="tlink" href="#app">Get the app <span>&rarr;</span></a></div>
                 </div>
-                <div className="art" aria-hidden="true" data-sc>
-                    <Image src="/hero-app.webp" alt="" width={1024} height={806} loading="eager" fetchPriority="high" sizes="(max-width: 960px) 100vw, 600px" />
+                <div className="trio" aria-hidden="true" data-sc>
+                    {SHOTS.map((s) => (
+                        <div className={s.cls} key={s.src}>
+                            <Image src={s.src} alt="" width={800} height={886} loading="eager" fetchPriority={s.cls.endsWith("c") ? "high" : "auto"} sizes="(max-width: 960px) 280px, 360px" />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
