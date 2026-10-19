@@ -1,14 +1,12 @@
 import Image from "next/image";
 
-// The three app mockups from the solid-wealth feature section, in the activeinvest.in hero layout:
-// the copy lands in sequence, the side shots fan out from behind the middle one, then drift apart
-// as you scroll (--hs, set by ScrollEffects).
-const SHOTS = [
-    { cls: "shot shot-l", src: "/feature-onboarding.webp" },
-    { cls: "shot shot-c", src: "/feature-portfolio.webp" },
-    { cls: "shot shot-r", src: "/feature-risk.webp" },
+// Three app screens in phone frames, in the activeinvest.in hero layout: the copy lands in sequence, the side
+// phones fan out from behind the middle one, then drift apart as you scroll (--hs, set by ScrollEffects).
+const PHONES = [
+    { cls: "ph ph-l", src: "/hero1.jpeg", sizes: "(max-width: 960px) 36vw, 230px" },
+    { cls: "ph ph-c", src: "/hero2.jpeg", sizes: "(max-width: 960px) 42vw, 270px" },
+    { cls: "ph ph-r", src: "/hero3.jpeg", sizes: "(max-width: 960px) 36vw, 230px" },
 ];
-
 export function HeroSection() {
     return (
         <section className="hero">
@@ -19,10 +17,10 @@ export function HeroSection() {
                     <p className="lead">Mutual funds, SIPs and tax saving, set up with Solid Wealth and tracked in your own app.</p>
                     <div className="ctas"><a className="btn" href="#contact">Talk to us</a><a className="tlink" href="#app">Get the app <span>&rarr;</span></a></div>
                 </div>
-                <div className="trio" aria-hidden="true" data-sc>
-                    {SHOTS.map((s) => (
-                        <div className={s.cls} key={s.src}>
-                            <Image src={s.src} alt="" width={800} height={886} loading="eager" fetchPriority={s.cls.endsWith("c") ? "high" : "auto"} sizes="(max-width: 960px) 280px, 360px" />
+                <div className="phones" aria-hidden="true" data-sc>
+                    {PHONES.map((p) => (
+                        <div className={p.cls} key={p.src}>
+                            <Image src={p.src} alt="" width={720} height={1600} loading="eager" fetchPriority={p.cls === "ph ph-c" ? "high" : "auto"} sizes={p.sizes} />
                         </div>
                     ))}
                 </div>

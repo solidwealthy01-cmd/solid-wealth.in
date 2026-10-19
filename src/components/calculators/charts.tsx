@@ -1,8 +1,8 @@
 import type { Row } from "@/lib/calculators";
 
 // Plain SVG, so the same charts render on the page and inside the captured PDF pages.
-export const C_A = "#F5CB7A";
-export const C_B = "#FE9800";
+export const C_A = "#FFD3A8";
+export const C_B = "#FF7A1A";
 
 /** Grouped bars, one pair per year. */
 export function GrowthChart({ rows, fmt, w = 640, h = 220 }: { rows: Row[]; fmt: (v: number) => string; w?: number; h?: number }) {

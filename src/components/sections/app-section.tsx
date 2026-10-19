@@ -15,7 +15,7 @@ export function AppSection() {
                     </div>
                 </div>
                 <div className="band-ph rv">
-                    <Image src="/app-phone.webp" alt="A fund page in the Solid Wealth app" width={627} height={784} sizes="(max-width: 560px) 320px, (min-width: 1536px) 480px, 420px" />
+                    <div className="ph"><Image src="/hero2.jpeg" alt="Home screen of the Solid Wealth app" width={720} height={1600} sizes="(max-width: 560px) 210px, (min-width: 1536px) 290px, 250px" /></div>
                 </div>
             </div>
         </section>

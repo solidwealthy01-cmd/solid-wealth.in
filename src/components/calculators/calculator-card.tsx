@@ -99,7 +99,7 @@ export function CalculatorCard({ id, initial, on, how, replay, busy, onPlan, onP
                     <div className="csplit"><i style={{ width: (a / tot) * 100 + "%" }} /><i style={{ width: (b / tot) * 100 + "%" }} /></div>
                     <div className="rows">
                         {(r.extra || []).map(([l, n]) => <div className="row" key={l}><span>{l}</span><b>{inr(n)}</b></div>)}
-                        <div className="row"><span><i style={{ background: "#F5CB7A" }} />{r.a[0]}</span><b>{inr(r.a[1])}</b></div>
+                        <div className="row"><span><i style={{ background: "#FFD3A8" }} />{r.a[0]}</span><b>{inr(r.a[1])}</b></div>
                         <div className="row"><span><i style={{ background: "var(--ac)" }} />{r.b[0]}</span><b>{inr(r.b[1])}</b></div>
                     </div>
                     {r.rows && (
