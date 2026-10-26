@@ -8,6 +8,11 @@ export const EMAIL = "solidwealthy@gmail.com";
 export const MAIN_SITE = "https://www.solidwealthindia.com";
 export const LINKEDIN = "https://www.linkedin.com/company/solid-wealth/";
 
+export const portalLinks = {
+    client: "https://client.solidwealth.in",
+    partner: "https://distributor.solidwealth.in",
+} as const;
+
 export const appLinks = {
     android: "https://play.google.com/store/apps/details?id=com.rabbitinvest.solidwealth&hl=en_IN",
     ios: "https://apps.apple.com/sg/app/themfbox/id1594370380",

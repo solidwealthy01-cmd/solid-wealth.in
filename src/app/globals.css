@@ -31,7 +31,16 @@ em{font-style:normal;color:var(--ac);background:var(--grad);-webkit-background-c
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--fh),sans-serif;font-weight:var(--hw);color:var(--ink);letter-spacing:-.02em;font-size:18px}
 .brand img{border-radius:10px}
 .links{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:600}.links a:hover{color:var(--ac-t)}
-.nav-cta{display:flex;gap:10px}
+.nav-cta{display:flex;gap:10px;align-items:center}
+/* login menu: a <details> so it opens without JS; scroll-effects closes it on outside click and Escape */
+.login{position:relative}
+.login summary{list-style:none}.login summary::-webkit-details-marker{display:none}
+.login summary svg{width:15px;height:15px;transition:transform var(--t-fast) var(--ease)}.login[open] summary svg{transform:rotate(180deg)}
+.login[open] summary{border-color:var(--ac)}
+.login-menu{position:absolute;right:0;top:calc(100% + 8px);width:250px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:6px;box-shadow:0 18px 40px -12px rgba(27,34,51,.18);display:grid;gap:2px;animation:up var(--t-std) var(--ease);--rise:6px}
+.login-menu a{display:grid;gap:2px;padding:11px 14px;border-radius:12px;transition:background var(--t-fast) var(--ease)}
+.login-menu a:hover,.login-menu a:focus-visible{background:var(--soft-ac);outline:none}
+.login-menu b{color:var(--ink);font-size:14px;font-weight:800}.login-menu span{font-size:12.5px;color:var(--muted);font-weight:600}
 /* hero: copy lands in sequence, the app rises in front of the disc, then drifts up as you scroll (--hs 0..1) */
 .hero{padding:56px 0 64px;overflow:hidden}
 .hero-in{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
@@ -270,7 +279,8 @@ html.js .rv.in{opacity:1;translate:0 0}
 }
 @media (max-width:560px){
  .wrap{padding:0 20px}.sec,.band{padding:44px 0}.sec-head{margin-bottom:22px}.faq{grid-template-columns:1fr}
- .brand span{display:none}.nav-cta{gap:8px}
+ .brand span{display:none}.nav-cta{gap:8px}.nav-app{display:none}
+ .login{position:static}.login-menu{left:20px;right:20px;width:auto;top:calc(100% - 2px)}
  .grid3{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 24px;scroll-padding:0 20px;scrollbar-width:none}
  .grid3::-webkit-scrollbar{display:none}.card{padding:18px 20px;flex:0 0 78%;scroll-snap-align:start}
  .steps{grid-template-columns:1fr;gap:20px}.steps li{padding-left:50px}.steps b{position:absolute;left:0;top:-4px}

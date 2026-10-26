@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { EMAIL, MAIN_SITE, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { EMAIL, MAIN_SITE, SITE_NAME, SITE_TAGLINE, portalLinks } from "@/lib/site";
 
 export function Footer() {
     return (
@@ -14,6 +14,7 @@ export function Footer() {
                     <div className="foot-links">
                         <a href="#services">Services</a><a href="#calculator">Calculator</a><a href="#contact">Contact</a>
                         <a href={`${MAIN_SITE}/mutual-funds`} rel="noopener">Fund research</a><a href={`${MAIN_SITE}/research`} rel="noopener">Learn investing</a><a href={`${MAIN_SITE}/blog`} rel="noopener">Blog</a>
+                        <a href={portalLinks.client} rel="noopener">Client Portal</a><a href={portalLinks.partner} rel="noopener">Partner Portal</a>
                     </div>
                 </div>
                 <p className="risk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>

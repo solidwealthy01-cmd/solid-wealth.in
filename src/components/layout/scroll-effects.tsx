@@ -40,7 +40,14 @@ export function ScrollEffects() {
         }), { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }) : null;
         document.querySelectorAll(".rv").forEach((el) => (io ? io.observe(el) : el.classList.add("in")));
 
-        return () => { removeEventListener("scroll", onScroll); removeEventListener("resize", frame); io?.disconnect(); };
+        // close the nav login menu on an outside click or Escape
+        const login = document.querySelector<HTMLDetailsElement>(".login");
+        const onDown = (e: PointerEvent) => { if (login?.open && !login.contains(e.target as Node)) login.open = false; };
+        const onKey = (e: KeyboardEvent) => { if (e.key === "Escape" && login?.open) { login.open = false; login.querySelector("summary")?.focus(); } };
+        addEventListener("pointerdown", onDown);
+        addEventListener("keydown", onKey);
+
+        return () => { removeEventListener("scroll", onScroll); removeEventListener("resize", frame); removeEventListener("pointerdown", onDown); removeEventListener("keydown", onKey); io?.disconnect(); };
     }, []);
     return null;
 }
